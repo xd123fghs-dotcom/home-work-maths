@@ -28,11 +28,11 @@
             -webkit-tap-highlight-color: transparent;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             
-            /* [แก้ไข] บล็อกการไฮไลต์สีฟ้าครอบข้อความ (Text Selection) สำหรับทุกเบราว์เซอร์ */
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* IE10+ */
-            user-select: none;         /* Standard */
+            /* บล็อกการไฮไลต์สีฟ้าครอบข้อความ (Text Selection) */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         body {
@@ -43,12 +43,12 @@
             min-height: 100vh;
         }
 
-        h2, h3, h4, .back-btn {
+        h2, h3, h4, .back-btn, .page-indicator {
             font-family: 'Mitr', sans-serif;
         }
 
         /* ==========================================
-           2. ANIMATIONS RETURN
+           2. ANIMATIONS
            ========================================== */
         @keyframes slideInRight { from { transform: translateX(40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         @keyframes slideInLeft { from { transform: translateX(-25px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
@@ -88,6 +88,17 @@
         .back-btn:hover {
             background: #f1f5f9;
             transform: translateX(-3px);
+        }
+
+        /* สไตล์สำหรับข้อความหัวกระดาษที่เพิ่มเข้ามา */
+        .page-indicator {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid #dbeafe;
         }
 
         .main-layout {
@@ -172,7 +183,7 @@
         }
 
         /* ==========================================
-           4. MATH FRACTION SYSTEM (โครงสร้างเศษส่วนสมจริง)
+           4. MATH FRACTION SYSTEM
            ========================================== */
         .frac {
             display: inline-flex;
@@ -245,6 +256,7 @@
             }
             .top-bar { padding: 1rem; }
             .viewer { padding: 1.5rem; min-height: 420px; }
+            .page-indicator { font-size: 0.85rem; padding: 0.3rem 0.8rem; }
         }
     </style>
 </head>
@@ -252,6 +264,7 @@
 
     <div class="top-bar">
         <a href="index.html" class="back-btn">🔙 กลับหน้าแรก</a>
+        <div class="page-indicator">📖 หน้า 7 ในหนังสือคณิต</div>
         <h3 style="color: var(--primary);">MathMaster P.5</h3>
     </div>
 
@@ -378,7 +391,7 @@
             `;
         }
 
-        // [แก้ไข] ดักจับ Event บล็อกการคลิกขวา (Context Menu) ทั้งหน้าเว็บ
+        // ดักจับ Event บล็อกการคลิกขวา (Context Menu) ทั้งหน้าเว็บ
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
         });
