@@ -13,6 +13,12 @@
             padding: 0;
             box-sizing: border-box;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* บล็อกการไฮไลต์สีฟ้าครอบข้อความ (Text Selection) ทั่วทั้งหน้า */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         body {
             font-family: 'Sarabun', sans-serif;
@@ -57,12 +63,13 @@
             font-family: 'Mitr', sans-serif;
             background: linear-gradient(135deg, #4361ee 0%, #3f37c9 100%);
             color: white;
-            text-decoration: none; /* เอาเส้นใต้ลิ้งก์ออก */
+            text-decoration: none;
             padding: 1rem 2.5rem;
             font-size: 1.2rem;
             border-radius: 1rem;
             font-weight: 600;
             box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+            cursor: pointer;
         }
         .go-btn:hover {
             transform: translateY(-3px);
@@ -78,5 +85,11 @@
         <a href="homework.html" class="go-btn">ดูเฉลยการบ้านเลย ➔</a>
     </div>
 
+    <script>
+        // บล็อกการคลิกขวา (Context Menu) สำหรับหน้าแรกด้วยครับ
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    </script>
 </body>
 </html>
